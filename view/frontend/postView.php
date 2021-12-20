@@ -34,6 +34,7 @@
 
 
 <?php
+var_dump($comments);
 while ($comment = $comments->fetch())
 {
     ?>

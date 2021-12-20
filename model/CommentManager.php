@@ -1,6 +1,9 @@
 <?php
 
-class CommentManager
+namespace Funax\BlogMVC\Model;
+require_once 'model/Manager.php';
+
+class CommentManager extends Manager
 {
     public function getComments($postId)
     {
@@ -11,11 +14,6 @@ class CommentManager
         return $comments;
     }
 
-    private function dbConnect()
-    {
-        $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
-        return $db;
-    }
 
     public function postComment($postId, $author, $comment)
     {

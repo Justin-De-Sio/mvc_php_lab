@@ -1,5 +1,10 @@
 <?php
-class PostManager
+
+namespace Funax\BlogMVC\Model;
+
+require_once 'model/Manager.php';
+
+class PostManager extends Manager
 {
     public function getPosts()
     {
@@ -20,9 +25,4 @@ class PostManager
     }
 
 
-    private function dbConnect()
-    {
-        $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
-        return $db;
-    }
 }

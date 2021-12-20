@@ -1,6 +1,9 @@
 <?php
 
 // Chargement des classes
+use Funax\blogMVC\Model\CommentManager;
+use Funax\blogMVC\Model\PostManager;
+
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 

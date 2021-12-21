@@ -38,3 +38,23 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function comment($id){
+    $commentManager = new CommentManager();
+    $comment = $commentManager->getComment($id);
+    var_dump($comment);
+    require ('view/frontend/modifPostView.php');
+}
+function modifComment($id)
+{
+    $commentManager = new CommentManager();
+    $affectedLines = $commentManager->setComment($id);
+
+    if ($affectedLines == false) {
+        throw new Exception('Impossible de modifier le commentaire !');
+    } else {
+        header('location : index.php?action=post&id=' . $postId);
+    }
+
+
+}

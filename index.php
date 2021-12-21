@@ -24,6 +24,13 @@ try { // On essaie de faire des choses
                 // Autre exception
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
+        } else if ($_GET['action'] == 'comment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                comment($_GET['id']);
+            }
+            else{
+                throw new Exception('Impossible de modifier');
+            }
         }
     } else {
         listPosts();

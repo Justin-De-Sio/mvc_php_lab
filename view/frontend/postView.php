@@ -20,25 +20,26 @@
 
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
+        <label for="author">Auteur</label><br/>
+        <input type="text" id="author" name="author"/>
     </div>
     <div>
-        <label for="comment">Commentaire</label><br />
+        <label for="comment">Commentaire</label><br/>
         <textarea id="comment" name="comment"></textarea>
     </div>
     <div>
-        <input type="submit" />
+        <input type="submit"/>
     </div>
 </form>
 
 
 <?php
-var_dump($comments);
-while ($comment = $comments->fetch())
-{
+
+while ($comment = $comments->fetch()) {
     ?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?>
+        (<a href="index.php?action=comment&amp;id=<?= $comment['id'] ?>">modifier</a>)</p>
+
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
     <?php
 }
